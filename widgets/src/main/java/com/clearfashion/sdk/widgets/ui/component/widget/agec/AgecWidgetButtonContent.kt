@@ -18,7 +18,7 @@ import com.clearfashion.sdk.widgets.ui.component.Title
 import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
-fun AgecWidgetButtonContent() {
+internal fun AgecWidgetButtonContent() {
     val resources = getResources()
     Row(verticalAlignment = Alignment.Top) {
         Column(modifier = Modifier.fillMaxWidth(0.9f)) {

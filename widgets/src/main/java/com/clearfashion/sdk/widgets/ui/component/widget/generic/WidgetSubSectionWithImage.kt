@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
-fun WidgetSubSectionWithImage(
+internal fun WidgetSubSectionWithImage(
     @DrawableRes resourceId: Int,
     modifier: Modifier = Modifier,
     verticalAlignment: Alignment.Vertical = Alignment.Top,

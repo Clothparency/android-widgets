@@ -11,7 +11,7 @@ private val impactToLogo = mapOf<EnvironmentImpact, Int>(
     EnvironmentImpact.Uses to R.drawable.uses
 )
 
-fun getEnvironmentImpactLogoResourceID(impact: EnvironmentImpact): Int {
+internal fun getEnvironmentImpactLogoResourceID(impact: EnvironmentImpact): Int {
     return impactToLogo[impact]!!
 }
 
@@ -22,6 +22,6 @@ private val impactToText = mapOf<EnvironmentImpact, Int>(
     EnvironmentImpact.Uses to R.string.general_section_environment_impact_uses
 )
 
-fun getEnvironmentImpactTextResourceID(impact: EnvironmentImpact): Int {
+internal fun getEnvironmentImpactTextResourceID(impact: EnvironmentImpact): Int {
     return impactToText[impact]!!
 }

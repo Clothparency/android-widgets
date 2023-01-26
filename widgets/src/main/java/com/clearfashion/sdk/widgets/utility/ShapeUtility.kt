@@ -3,7 +3,7 @@ package com.clearfashion.sdk.widgets.utility
 import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.ui.graphics.Shape
 
-fun getBottomLineShape(bottomLineThickness: Float) : Shape {
+internal fun getBottomLineShape(bottomLineThickness: Float) : Shape {
     return GenericShape { size, _ ->
         // 1) Bottom-left corner
         moveTo(0f, size.height)

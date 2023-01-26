@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.sp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
-fun Title(text : String, modifier: Modifier = Modifier) {
+internal fun Title(text : String, modifier: Modifier = Modifier) {
     Text(
         text = text,
         fontWeight = FontWeight.SemiBold,

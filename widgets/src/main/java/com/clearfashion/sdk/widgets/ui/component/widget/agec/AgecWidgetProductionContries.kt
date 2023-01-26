@@ -9,7 +9,7 @@ import com.clearfashion.sdk.widgets.utility.getResources
 
 
 @Composable
-fun AgecWidgetProductionContries() {
+internal fun AgecWidgetProductionContries() {
     val resources = getResources()
 
     WidgetSection(title = resources.getString(R.string.general_section_title_production_countries)) {

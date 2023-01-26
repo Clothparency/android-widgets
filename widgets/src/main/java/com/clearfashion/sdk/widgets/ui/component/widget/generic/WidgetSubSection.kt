@@ -10,7 +10,7 @@ import com.clearfashion.sdk.widgets.ui.theme.Color
 import com.clearfashion.sdk.widgets.utility.getBottomLineShape
 
 @Composable
-fun WidgetSubSection(
+internal fun WidgetSubSection(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {

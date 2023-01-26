@@ -8,7 +8,7 @@ import com.clearfashion.sdk.widgets.ui.component.widget.generic.WidgetSection
 import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
-fun AgecWidgetImpact() {
+internal fun AgecWidgetImpact() {
     val resources = getResources()
 
     WidgetSection(title = resources.getString(R.string.general_section_title_environment_impact)) {

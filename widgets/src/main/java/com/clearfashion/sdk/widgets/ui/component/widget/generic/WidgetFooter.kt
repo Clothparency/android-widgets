@@ -12,7 +12,7 @@ import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
-fun WidgetFooter(modifier: Modifier = Modifier) {
+internal fun WidgetFooter(modifier: Modifier = Modifier) {
     val resources = getResources()
 
     Column(

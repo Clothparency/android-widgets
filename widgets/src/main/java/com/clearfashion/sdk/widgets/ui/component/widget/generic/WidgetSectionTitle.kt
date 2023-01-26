@@ -11,7 +11,7 @@ import com.clearfashion.sdk.widgets.ui.theme.Color
 import com.clearfashion.sdk.widgets.utility.getBottomLineShape
 
 @Composable
-fun WidgetSectionTitle(text: String, modifier: Modifier = Modifier) {
+internal fun WidgetSectionTitle(text: String, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxWidth()

@@ -11,7 +11,7 @@ import com.clearfashion.sdk.widgets.ui.component.Title
 import com.clearfashion.sdk.widgets.utility.*
 
 @Composable
-fun WidgetProductionCountry(step: ProductionStep, country: String, modifier: Modifier = Modifier) {
+internal fun WidgetProductionCountry(step: ProductionStep, country: String, modifier: Modifier = Modifier) {
     val resources = getResources();
 
     WidgetSubSectionWithImage(

@@ -13,7 +13,7 @@ import androidx.compose.ui.window.Popup
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
-fun OpenedWidget(
+internal fun OpenedWidget(
     title: String,
     modifier: Modifier = Modifier,
     onClose: () -> Unit,

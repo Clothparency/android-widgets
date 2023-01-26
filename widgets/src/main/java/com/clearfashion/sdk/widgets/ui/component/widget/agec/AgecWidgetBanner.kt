@@ -14,7 +14,7 @@ import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
-fun AgecWidgetBanner() {
+internal fun AgecWidgetBanner() {
     val resources = getResources();
 
     Box(

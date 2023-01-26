@@ -4,20 +4,20 @@ import android.content.Context
 import android.content.res.Resources
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import com.clearfashion.sdk.widgets.ClearFashionWidgetLanguage
+import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 
 @Composable
-fun getContext(): Context {
+internal fun getContext(): Context {
     return LocalContext.current;
 }
 
 @Composable
-fun getResources(): Resources {
+internal fun getResources(): Resources {
     return getContext().resources;
 }
 
 @Composable
-fun setLocale(lang: ClearFashionWidgetLanguage) {
+internal fun setLocale(lang: ClearFashionWidgetLanguage) {
     val resources = getResources()
     val configuration = resources.configuration
     configuration.setLocale(lang.locale)

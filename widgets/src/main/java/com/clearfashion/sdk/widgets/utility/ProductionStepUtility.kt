@@ -12,7 +12,7 @@ private val stepToLogo = mapOf<ProductionStep, Int>(
     ProductionStep.Weaving to R.drawable.weaving
 )
 
-fun getProductionStepLogoResourceID(step: ProductionStep): Int {
+internal fun getProductionStepLogoResourceID(step: ProductionStep): Int {
     return stepToLogo[step]!!
 }
 
@@ -25,6 +25,6 @@ private val stepToText = mapOf<ProductionStep, Int>(
     ProductionStep.Weaving to R.string.general_section_production_step_weaving
 )
 
-fun getProductionStepTextResourceID(step: ProductionStep): Int {
+internal fun getProductionStepTextResourceID(step: ProductionStep): Int {
     return stepToText[step]!!
 }

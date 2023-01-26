@@ -14,7 +14,7 @@ import com.clearfashion.sdk.widgets.utility.getEnvironmentImpactTextResourceID
 import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
-fun WidgetEnvironmentImpact(
+internal fun WidgetEnvironmentImpact(
     impact: EnvironmentImpact,
     title: String,
     description: String

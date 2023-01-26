@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
-fun WidgetSection(
+internal fun WidgetSection(
     title: String,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit

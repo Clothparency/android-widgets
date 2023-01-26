@@ -2,7 +2,7 @@ package com.clearfashion.sdk.widgets.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-class Color {
+internal class Color {
     companion object {
         val White = Color.White
         val Grey20 = Color(0xFFF5F5F5)

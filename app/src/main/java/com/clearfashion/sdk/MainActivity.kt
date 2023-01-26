@@ -7,11 +7,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.clearfashion.sdk.widgets.ClearFashionWidget
-import com.clearfashion.sdk.widgets.ClearFashionWidgetType
-import com.clearfashion.sdk.widgets.ClearFashionWidgetLanguage
-import com.clearfashion.sdk.widgets.ui.theme.Color
+import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 
 class MainActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +18,7 @@ class MainActivity: ComponentActivity() {
         setContent {
             Box(modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Grey20)
+                .background(Color(0xFFF5F5F5))
                 .padding(16.dp)) {
                 Column() {
                     Text(text = "This is some other content...")

@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
-fun WidgetButton(
+internal fun WidgetButton(
     title: String,
     modifier: Modifier = Modifier,
     closedContent: @Composable () -> Unit,

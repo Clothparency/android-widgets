@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.sp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
-fun Description(
+internal fun Description(
     text : String,
     textAlign: TextAlign = TextAlign.Left,
     modifier: Modifier = Modifier

@@ -1,36 +1,12 @@
 package com.clearfashion.sdk.widgets
 
 import androidx.compose.runtime.Composable
-import com.clearfashion.sdk.widgets.model.getWidget
+import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
+import com.clearfashion.sdk.widgets.type.ClearFashionWidgetType
 import com.clearfashion.sdk.widgets.ui.component.widget.generic.WidgetButton
 import com.clearfashion.sdk.widgets.utility.getResources
+import com.clearfashion.sdk.widgets.utility.getWidget
 import com.clearfashion.sdk.widgets.utility.setLocale
-import java.util.*
-
-/**
- * The languages supported by the widget
- */
-enum class ClearFashionWidgetLanguage(val locale: Locale) {
-    /**
-     * Set the widget language to english
-     */
-    ENGLISH(Locale("en")),
-
-    /**
-     * Set the widget language to french
-     */
-    FRENCH(Locale("fr"))
-}
-
-/**
- * The widget types currently supported.
- */
-enum class ClearFashionWidgetType {
-    /**
-     * Get the AGEC widget
-     */
-    AGEC
-}
 
 /**
  * Displays the Clear Fashion's AGEC widget.

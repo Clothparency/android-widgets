@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.sp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
-fun SubTitle(text : String, modifier: Modifier = Modifier) {
+internal fun SubTitle(text : String, modifier: Modifier = Modifier) {
     Text(
         text = text,
         fontWeight = FontWeight.Normal,
