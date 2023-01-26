@@ -1,11 +1,11 @@
 package com.clearfashion.sdk.widgets.utility
 
+import android.content.res.Resources
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
-fun getString(@StringRes id: Int, vararg formatArgs: String ): String {
-    val resources = LocalContext.current.resources
-    return resources.getString(id, formatArgs);
+fun getResources(): Resources {
+    return LocalContext.current.resources;
 }

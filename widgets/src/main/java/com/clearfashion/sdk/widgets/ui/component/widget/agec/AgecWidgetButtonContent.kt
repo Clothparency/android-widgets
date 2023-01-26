@@ -15,17 +15,18 @@ import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.ui.component.LogoColor
 import com.clearfashion.sdk.widgets.ui.component.LogoWithText
 import com.clearfashion.sdk.widgets.ui.component.Title
-import com.clearfashion.sdk.widgets.utility.getString
+import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
 fun AgecWidgetButtonContent() {
+    val resources = getResources()
     Row(verticalAlignment = Alignment.Top) {
         Column(modifier = Modifier.fillMaxWidth(0.9f)) {
-            Title(getString(R.string.agec_cta))
+            Title(resources.getString(R.string.agec_cta))
             Spacer(modifier = Modifier.size(8.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = getString(R.string.general_verified_by),
+                    text = resources.getString(R.string.general_verified_by),
                     color = Color.Grey300,
                     softWrap = true,
                     fontSize = 12.sp,

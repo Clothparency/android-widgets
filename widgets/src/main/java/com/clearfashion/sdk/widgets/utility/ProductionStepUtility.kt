@@ -15,7 +15,7 @@ val stepToLogo = mapOf<ProductionStep, Int>(
 fun getProductionStepResourceID(step: ProductionStep): Int {
     return stepToLogo[step]!!
 }
-
+g
 val stepToText = mapOf<ProductionStep, String>(
     ProductionStep.Assembly to "Assembly",
     ProductionStep.DyeingAndPrinting to "Dyeing and printing",

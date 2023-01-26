@@ -11,10 +11,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 import com.clearfashion.sdk.widgets.R
-import com.clearfashion.sdk.widgets.utility.getString
+import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
 fun AgecWidgetBanner() {
+    val resources = getResources();
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -22,7 +24,7 @@ fun AgecWidgetBanner() {
             .padding(32.dp, 24.dp)
     ) {
         Text(
-            text = getString(R.string.agec_banner, "Pimkie"),
+            text = resources.getString(R.string.agec_banner, "Pimkie"),
             color = Color.Grey600,
             textAlign = TextAlign.Center
         )
