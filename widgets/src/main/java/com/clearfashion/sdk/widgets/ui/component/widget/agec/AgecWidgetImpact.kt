@@ -15,7 +15,7 @@ fun AgecWidgetImpact() {
         WidgetEnvironmentImpact(
             impact = EnvironmentImpact.RawMaterial,
             title = resources.getString(R.string.agec_section_title_raw_material, "95%"),
-            description = resources.getString(R.string.agec_section_description_raw_material)
+            description = resources.getString(R.string.agec_section_description_raw_material_recycled)
         )
         WidgetEnvironmentImpact(
             impact = EnvironmentImpact.Recyclability,
@@ -25,11 +25,11 @@ fun AgecWidgetImpact() {
         WidgetEnvironmentImpact(
             impact = EnvironmentImpact.Uses,
             title = resources.getString(R.string.agec_section_title_uses),
-            description = resources.getString(R.string.agec_section_description_uses)
+            description = resources.getString(R.string.agec_section_description_uses, "100%")
         )
         WidgetEnvironmentImpact(
             impact = EnvironmentImpact.HighRiskSubstances,
-            title = resources.getString(R.string.agec_section_title_high_risk_substances, "Poils d’ours"),
+            title = resources.getQuantityString(R.plurals.agec_section_title_high_risk_substances, 1, "Poils d’ours"),
             description = resources.getString(R.string.agec_section_description_high_risk_substances)
         )
     }

@@ -4,13 +4,24 @@ import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.model.EnvironmentImpact
 import com.clearfashion.sdk.widgets.model.ProductionStep
 
-val impactToLogo = mapOf<EnvironmentImpact, Int>(
+private val impactToLogo = mapOf<EnvironmentImpact, Int>(
     EnvironmentImpact.HighRiskSubstances to R.drawable.risks,
     EnvironmentImpact.RawMaterial to R.drawable.raw_material,
     EnvironmentImpact.Recyclability to R.drawable.recyclability,
     EnvironmentImpact.Uses to R.drawable.uses
 )
 
-fun getEnvironmentImpactResourceID(impact: EnvironmentImpact): Int {
+fun getEnvironmentImpactLogoResourceID(impact: EnvironmentImpact): Int {
     return impactToLogo[impact]!!
+}
+
+private val impactToText = mapOf<EnvironmentImpact, Int>(
+    EnvironmentImpact.HighRiskSubstances to R.string.general_section_environment_impact_high_risk_substances,
+    EnvironmentImpact.RawMaterial to R.string.general_section_environment_impact_raw_material,
+    EnvironmentImpact.Recyclability to R.string.general_section_environment_impact_recyclability,
+    EnvironmentImpact.Uses to R.string.general_section_environment_impact_uses
+)
+
+fun getEnvironmentImpactTextResourceID(impact: EnvironmentImpact): Int {
+    return impactToText[impact]!!
 }

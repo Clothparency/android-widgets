@@ -3,7 +3,7 @@ package com.clearfashion.sdk.widgets.utility
 import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.model.ProductionStep
 
-val stepToLogo = mapOf<ProductionStep, Int>(
+private val stepToLogo = mapOf<ProductionStep, Int>(
     ProductionStep.Assembly to R.drawable.assembly,
     ProductionStep.DyeingAndPrinting to R.drawable.dyeing_and_printing,
     ProductionStep.Finishing to R.drawable.finishing,
@@ -12,19 +12,19 @@ val stepToLogo = mapOf<ProductionStep, Int>(
     ProductionStep.Weaving to R.drawable.weaving
 )
 
-fun getProductionStepResourceID(step: ProductionStep): Int {
+fun getProductionStepLogoResourceID(step: ProductionStep): Int {
     return stepToLogo[step]!!
 }
-g
-val stepToText = mapOf<ProductionStep, String>(
-    ProductionStep.Assembly to "Assembly",
-    ProductionStep.DyeingAndPrinting to "Dyeing and printing",
-    ProductionStep.Finishing to "Finishing",
-    ProductionStep.Manufacturing to "Manufacturing",
-    ProductionStep.Stitching to "Stitching",
-    ProductionStep.Weaving to "Weaving"
+
+private val stepToText = mapOf<ProductionStep, Int>(
+    ProductionStep.Assembly to R.string.general_section_production_step_assembly,
+    ProductionStep.DyeingAndPrinting to R.string.general_section_production_step_dyeing_and_printing,
+    ProductionStep.Finishing to R.string.general_section_production_step_finishing,
+    ProductionStep.Manufacturing to R.string.general_section_production_step_manufacturing,
+    ProductionStep.Stitching to R.string.general_section_production_step_stitching,
+    ProductionStep.Weaving to R.string.general_section_production_step_weaving
 )
 
-fun getProductionStepText(step: ProductionStep): String {
+fun getProductionStepTextResourceID(step: ProductionStep): Int {
     return stepToText[step]!!
 }

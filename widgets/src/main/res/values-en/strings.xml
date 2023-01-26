@@ -3,124 +3,122 @@
 <!-- https://developer.android.com/guide/topics/resources/string-resource -->
 <resources>
     <!-- General -->
-    <string name="general_verified_by">Vérifié par</string>
+    <string name="general_verified_by">Verified by</string>
 
     <!-- General: Footer -->
     <string name="general_footer_legals">
-        Fiche produit relative aux qualités et caractéristiques environnementales : %s
+        Product sheet on environmental qualities and characteristics: %s
     </string>
     <string name="general_footer_updated_at">
-        Mise à jour : %s
+        Last update: %s
     </string>
 
     <!-- General: Section -->
     <!-- General: Section: Production Step -->
     <string name="general_section_production_step_assembly">
-        Montage
+        Assembly
     </string>
     <string name="general_section_production_step_dyeing_and_printing">
-        Teinture et impression
+        Dyeing and printing
     </string>
     <string name="general_section_production_step_finishing">
-        Finition
+        Finishing
     </string>
     <string name="general_section_production_step_manufacturing">
-        Conception
+        Manufacturing
     </string>
     <string name="general_section_production_step_stitching">
-        Piquage
+        Stitching
     </string>
     <string name="general_section_production_step_weaving">
-        Tissage
+        Weaving
     </string>
 
     <!-- General: Section: Environment Impact -->
     <string name="general_section_environment_impact_high_risk_substances">
-        Substance(s) à risque
+        High risk substance(s)
     </string>
     <string name="general_section_environment_impact_raw_material">
-        Matière première
+        Raw material
     </string>
     <string name="general_section_environment_impact_recyclability">
-        Recyclabilité
+        Recyclability
     </string>
     <string name="general_section_environment_impact_uses">
-        Utilisation
+        Uses
     </string>
 
     <!-- General: Section: Title -->
     <string name="general_section_title_production_countries">
-        Principaux pays de production
+        Main countries of production
     </string>
     <string name="general_section_title_environment_impact">
-        Impact des matières sur l\'environment
+        Impact of materials on the environment
     </string>
 
     <!-- Agec -->
     <string name="agec_cta">
-        Découvrez l\'origine et l’\'impact environnemental de ce modèle
+        Discover the origin and the environmental impact of this item
     </string>
     <string name="agec_title">
-        Origine et impact environnemental
+        Origin and environmental impact
     </string>
     <string name="agec_banner">
-        %s a fait le choix de la transparence en faisant vérifier ces informations par le
-        tiers indépendant Clear Fashion, grâce à l\'analyse de documents preuves.
+        %s has opted for transparency by having this information verified by the independent third
+        party Clear Fashion, through the analysis of documentary evidence.
     </string>
 
     <!-- Agec: Section -->
     <!-- Agec: Section: Title -->
     <string name="agec_section_title_raw_material">
-        Comporte au moins %s de matières recyclées
+        Contains at least %s of recycled materials
     </string>
     <string name="agec_section_title_recyclability_entirely">
-        Entièrement recyclable
+        Fully recyclable
     </string>
     <string name="agec_section_title_recyclability_mostly">
-        Majoritairement recyclable
+        Mainly recyclable
     </string>
     <string name="agec_section_title_recyclable_to_another_one">
-        Recyclable en un produit de même nature
+        Recyclable into a product of the same kind
     </string>
     <string name="agec_section_title_recyclability_non_recyclable">
-        Non recyclable
+        Non-recyclable product
     </string>
     <string name="agec_section_title_uses">
-        Rejette des microfibres plastiques dans l\'environnement lors du lavage
+        Releases microparticles of plastic into the environment during the washing
     </string>
     <plurals name="agec_section_title_high_risk_substances">
         <item quantity="one">
-            Contient une substance extrêmement préoccupante : %s
+            Contains a substance of very high concern (SVHC): %s
         </item>
         <item quantity="other">
-            Contient des substances extrêmement préoccupantes : %s
+            Contains substances of very high concern (SVHC): %s
         </item>
     </plurals>
     <plurals name="agec_section_title_concerning_substances">
         <item quantity="one">
-            Contient une substance dangereuse : %s
+            Contains a hazardous substance: %s
         </item>
         <item quantity="other">
-            Contient des substances dangereuses : %s
+            Contains hazardous substances: %s
         </item>
     </plurals>
 
     <!-- Agec: Section: Description -->
     <string name="agec_section_description_raw_material_recycled">
-        Les matières recyclées utilisent des ressources déjà existantes et limitent la production
-        de nouvelles matières.
+        Recycled materials come from existing resources and limit the production of virgin materials
     </string>
     <string name="agec_section_description_recyclability_entirely">
-        Ce vêtement peut être collecté, trié et recyclé pour être incorporé dans de nouveaux
-        produits.
+        This item can be collected, sorted and recycled to be incorporated into new items.
     </string>
     <string name="agec_section_description_uses">
-        Ce vêtement contient %s de matières synthétiques. Les matières synthétiques rejettent
-        des microfibres lors du lavage, contribuant à la pollution plastique des océans.
+        This item is composed of %s synthetic materials. Synthetic materials release
+        microparticles when washed, contributing to plastic pollution of the oceans.
     </string>
     <string name="agec_section_description_high_risk_substances">
-        Des tests en laboratoire ont permis d’identifier ces substances, jugées dangereuses par la
-        Commission Européenne.
+        Laboratory tests have identified these substances, deemed to be of concern by the European
+        Commission.
     </string>
 
 </resources>

@@ -8,17 +8,18 @@ import androidx.compose.ui.unit.dp
 import com.clearfashion.sdk.widgets.model.ProductionStep
 import com.clearfashion.sdk.widgets.ui.component.SubTitle
 import com.clearfashion.sdk.widgets.ui.component.Title
-import com.clearfashion.sdk.widgets.utility.getProductionStepResourceID
-import com.clearfashion.sdk.widgets.utility.getProductionStepText
+import com.clearfashion.sdk.widgets.utility.*
 
 @Composable
 fun WidgetProductionCountry(step: ProductionStep, country: String, modifier: Modifier = Modifier) {
+    val resources = getResources();
+
     WidgetSubSectionWithImage(
-        resourceId = getProductionStepResourceID(step),
+        resourceId = getProductionStepLogoResourceID(step),
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
     ) {
-        SubTitle(getProductionStepText(step))
+        SubTitle(resources.getString(getProductionStepTextResourceID(step)))
         Spacer(modifier = Modifier.size(8.dp))
         Title(country)
     }

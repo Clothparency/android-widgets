@@ -9,7 +9,9 @@ import com.clearfashion.sdk.widgets.model.EnvironmentImpact
 import com.clearfashion.sdk.widgets.ui.component.Description
 import com.clearfashion.sdk.widgets.ui.component.SubTitle
 import com.clearfashion.sdk.widgets.ui.component.Title
-import com.clearfashion.sdk.widgets.utility.getEnvironmentImpactResourceID
+import com.clearfashion.sdk.widgets.utility.getEnvironmentImpactLogoResourceID
+import com.clearfashion.sdk.widgets.utility.getEnvironmentImpactTextResourceID
+import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
 fun WidgetEnvironmentImpact(
@@ -17,8 +19,10 @@ fun WidgetEnvironmentImpact(
     title: String,
     description: String
 ) {
-    WidgetSubSectionWithImage(resourceId = getEnvironmentImpactResourceID(impact)) {
-        SubTitle(impact.name)
+    val resources = getResources();
+
+    WidgetSubSectionWithImage(resourceId = getEnvironmentImpactLogoResourceID(impact)) {
+        SubTitle(resources.getString(getEnvironmentImpactTextResourceID(impact)))
         Spacer(modifier = Modifier.size(8.dp))
         Title(text = title)
         Spacer(modifier = Modifier.size(8.dp))
