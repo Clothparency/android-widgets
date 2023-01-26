@@ -3,20 +3,38 @@ package com.clearfashion.sdk
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.clearfashion.sdk.widgets.HelloWorld
+import com.clearfashion.sdk.widgets.AgecWidget
+import com.clearfashion.sdk.widgets.ui.theme.Color
 
 class MainActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Box(modifier = Modifier.fillMaxSize()) {
-                HelloWorld(description = "Je suis un widget!", modifier = Modifier.align(Alignment.Center).size(150.dp))
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Grey20)
+                .padding(16.dp)) {
+                Column() {
+                    Text(text = "This is some other content...")
+                    Spacer(modifier = Modifier.size(16.dp))
+                    Text(text = "And that too !")
+                    Spacer(modifier = Modifier.size(16.dp))
+                    Text(text = "Hey, me too ! Don't forget me ayayay")
+                    Spacer(modifier = Modifier.size(16.dp))
+                    AgecWidget()
+                    Spacer(modifier = Modifier.size(16.dp))
+                    Text(text = "This is some other content...")
+                    Spacer(modifier = Modifier.size(16.dp))
+                    Text(text = "And that too !")
+                    Spacer(modifier = Modifier.size(16.dp))
+                    Text(text = "Hey, me too ! Don't forget me ayayay")
+                }
             }
         }
     }

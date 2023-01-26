@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <!-- General -->
+    <string name="general_verified_by">Vérifié par</string>
+
+    <!-- General: Footer -->
+    <string name="general_footer_legals">
+        Fiche produit relative aux qualités et caractéristiques environnementales : %s
+    </string>
+    <string name="general_footer_updated_at">
+        Mise à jour : %s
+    </string>
+
+    <!-- General: Section -->
+    <!-- General: Section: Production Step -->
+    <string name="general_section_production_step_assembly">
+        Montage
+    </string>
+    <string name="general_section_production_step_dyeing_and_printing">
+        Teinture et impression
+    </string>
+    <string name="general_section_production_step_finishing">
+        Finition
+    </string>
+    <string name="general_section_production_step_manufacturing">
+        Conception
+    </string>
+    <string name="general_section_production_step_stitching">
+        Piquage
+    </string>
+    <string name="general_section_production_step_weaving">
+        Tissage
+    </string>
+
+    <!-- General: Section: Environment Impact -->
+    <string name="general_section_environment_impact_high_risk_substances">
+        Substance(s) à risque
+    </string>
+    <string name="general_section_environment_impact_raw_material">
+        Matière première
+    </string>
+    <string name="general_section_environment_impact_recyclability">
+        Recyclabilité
+    </string>
+    <string name="general_section_environment_impact_uses">
+        Utilisation
+    </string>
+
+    <!-- General: Section: Title -->
+    <string name="general_section_title_production_countries">
+        Principaux pays de production
+    </string>
+    <string name="general_section_title_environment_impact">
+        Impact des matières sur l\'environment
+    </string>
+
+    <!-- Agec -->
+    <string name="agec_cta">
+        Découvrez l\'origine et l’\'impact environnemental de ce modèle
+    </string>
+    <string name="agec_title">
+        Origine et impact environnemental
+    </string>
+    <string name="agec_banner">
+        %s a fait le choix de la transparence en faisant vérifier ces informations par le
+        tiers indépendant Clear Fashion, grâce à l\'analyse de documents preuves.
+    </string>
+
+    <!-- Agec: Section -->
+    <!-- Agec: Section: Title -->
+    <string name="agec_section_title_raw_material">
+        Comporte au moins %s de matières recyclées
+    </string>
+    <string name="agec_section_title_recyclability_entirely">
+        Entièrement recyclable
+    </string>
+    <string name="agec_section_title_uses">
+        Rejette des microfibres plastiques dans l\'environnement lors du lavage
+    </string>
+    <string name="agec_section_title_high_risk_substances">
+        Contient une substance extrêment préoccupante : %s
+    </string>
+
+    <!-- Agec: Section: Description -->
+    <string name="agec_section_description_raw_material">
+        Les matières recyclées utilisent des ressources déjà existantes et limitent la production
+        de nouvelles matières.
+    </string>
+    <string name="agec_section_description_recyclability_entirely">
+        Ce vêtement peut être collecté, trié et recyclé pour être incorporé dans de nouveaux
+        produits.
+    </string>
+    <string name="agec_section_description_uses">
+        Ce vêtement contient 100 de matières synthétiques. Les matières synthétiques rejettent
+        des microfibres lors du lavage, contribuant à la pollution plastique des océans.
+    </string>
+    <string name="agec_section_description_high_risk_substances">
+        Des tests en laboratoire ont permis d’identifier ces substances, jugées dangereuses par la
+        Commission Européenne.
+    </string>
+
+</resources>
