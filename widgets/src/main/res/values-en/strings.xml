@@ -56,12 +56,19 @@
         Impact of materials on the environment
     </string>
 
+
     <!-- Agec -->
     <string name="agec_cta">
         Discover the origin and the environmental impact of this item
     </string>
     <string name="agec_title">
         Origin and environmental impact
+    </string>
+    <string name="agec_cta_tracability_only">
+        Discover the main countries of production of this item
+    </string>
+    <string name="agec_title_tracability_only">
+        Main countries of production
     </string>
     <string name="agec_banner">
         %s has opted for transparency by having this information verified by the independent third

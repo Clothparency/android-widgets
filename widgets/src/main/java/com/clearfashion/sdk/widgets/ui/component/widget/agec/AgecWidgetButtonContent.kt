@@ -12,17 +12,23 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 import com.clearfashion.sdk.widgets.R
+import com.clearfashion.sdk.widgets.model.Product
 import com.clearfashion.sdk.widgets.ui.component.LogoColor
 import com.clearfashion.sdk.widgets.ui.component.LogoWithText
 import com.clearfashion.sdk.widgets.ui.component.Title
 import com.clearfashion.sdk.widgets.utility.getResources
+import com.clearfashion.sdk.widgets.utility.hasImpact
 
 @Composable
-internal fun AgecWidgetButtonContent() {
+internal fun AgecWidgetButtonContent(product: Product) {
     val resources = getResources()
+    val titleResourceID =
+        if (hasImpact(product)) R.string.agec_cta
+        else R.string.agec_cta_tracability_only
+
     Row(verticalAlignment = Alignment.Top) {
         Column(modifier = Modifier.fillMaxWidth(0.9f)) {
-            Title(resources.getString(R.string.agec_cta))
+            Title(resources.getString(titleResourceID))
             Spacer(modifier = Modifier.size(8.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(

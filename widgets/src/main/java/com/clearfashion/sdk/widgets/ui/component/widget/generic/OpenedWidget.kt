@@ -10,13 +10,15 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Popup
+import com.clearfashion.sdk.widgets.model.Product
 import com.clearfashion.sdk.widgets.ui.theme.Color
 
 @Composable
 internal fun OpenedWidget(
-    title: String,
+    product: Product,
     modifier: Modifier = Modifier,
     onClose: () -> Unit,
+    title: @Composable () -> Unit,
     content: @Composable () -> Unit
 ) {
     val scrollState = rememberScrollState()
@@ -34,7 +36,7 @@ internal fun OpenedWidget(
                         .verticalScroll(state = scrollState)
                 ) {
                     content()
-                    WidgetFooter()
+                    WidgetFooter(product)
                 }
             }
         }

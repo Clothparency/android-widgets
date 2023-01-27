@@ -12,7 +12,11 @@ import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.ui.component.Title
 
 @Composable
-internal fun OpenedWidgetHeader(title: String, onClose: () -> Unit, modifier: Modifier = Modifier) {
+internal fun OpenedWidgetHeader(
+    title: @Composable () -> Unit,
+    onClose: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Box(modifier = modifier.fillMaxWidth()) {
         Row(
             modifier = Modifier
@@ -24,10 +28,7 @@ internal fun OpenedWidgetHeader(title: String, onClose: () -> Unit, modifier: Mo
                 modifier = Modifier
                     .fillMaxWidth(0.90f)
             ) {
-                Title(
-                    text = title,
-                    modifier = Modifier.align(Alignment.Center)
-                )
+                title()
             }
             Box(modifier = Modifier.fillMaxWidth()) {
                 Image(

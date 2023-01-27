@@ -22,6 +22,7 @@ internal fun WidgetSectionTitle(text: String, modifier: Modifier = Modifier) {
                 shape = getBottomLineShape(with(LocalDensity.current) { 1.dp.toPx() })
             )
     ) {
-        Title(text = text, modifier = Modifier.padding(0.dp, 24.dp))
+        if (text.isNotEmpty()) Title(text = text, modifier = Modifier.padding(0.dp, 24.dp))
+        else Spacer(modifier = Modifier.size(24.dp))
     }
 }

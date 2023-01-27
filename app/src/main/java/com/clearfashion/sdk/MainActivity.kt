@@ -28,8 +28,18 @@ class MainActivity: ComponentActivity() {
                     Text(text = "Hey, me too ! Don't forget me ayayay")
                     Spacer(modifier = Modifier.size(16.dp))
 
-                    // Ça c'est le widget :
-                    ClearFashionWidget(lang = ClearFashionWidgetLanguage.FRENCH)
+                    /*
+                        Product keys for tests:
+                            - 280395902A09
+                            - 141605696A06
+                            - 562596899A08
+                            - 141284899A08 (production countries only)
+                    */
+                    ClearFashionWidget(
+                        brandCode = "pimkie",
+                        productIdentifier = "141284899A08",
+                        lang = ClearFashionWidgetLanguage.FRENCH
+                    )
 
                     Spacer(modifier = Modifier.size(16.dp))
                     Text(text = "This is some other content...")

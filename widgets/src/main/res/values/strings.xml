@@ -63,6 +63,12 @@
     <string name="agec_title">
         Origine et impact environnemental
     </string>
+    <string name="agec_cta_tracability_only">
+        Découvrez les principaux pays de production de ce modèle
+    </string>
+    <string name="agec_title_tracability_only">
+        Principaux pays de production
+    </string>
     <string name="agec_banner">
         %s a fait le choix de la transparence en faisant vérifier ces informations par le
         tiers indépendant Clear Fashion, grâce à l\'analyse de documents preuves.
