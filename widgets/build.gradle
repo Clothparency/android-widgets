@@ -64,7 +64,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.Clothparency'
-                artifactId = 'clearfashion-widgets'
+                artifactId = 'android-widgets'
                 version = '0.1.0'
             }
         }
