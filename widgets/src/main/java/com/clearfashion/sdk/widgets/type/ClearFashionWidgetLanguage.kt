@@ -9,10 +9,10 @@ enum class ClearFashionWidgetLanguage(val locale: Locale) {
     /**
      * Set the widget language to english
      */
-    ENGLISH(Locale("en")),
+    EN(Locale("en")),
 
     /**
      * Set the widget language to french
      */
-    FRENCH(Locale("fr"))
+    FR(Locale("fr"))
 }

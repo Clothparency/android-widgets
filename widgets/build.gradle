@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -54,4 +55,18 @@ dependencies {
 
     implementation "com.squareup.okhttp3:okhttp:4.10.0"
     implementation "com.google.code.gson:gson:2.10.1"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.clothparency'
+                artifactId = 'clearfashion-widgets'
+                version = '1.0 '
+            }
+        }
+    }
 }

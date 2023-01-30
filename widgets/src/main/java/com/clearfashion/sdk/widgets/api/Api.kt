@@ -43,6 +43,9 @@ internal fun fetchAndExecute(
                 // FIXME: Configure a logger
                 println("Failed to parse response")
                 e.printStackTrace()
+                coroutineScope.launch {
+                    onFailure(e)
+                }
             }
 
         }

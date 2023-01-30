@@ -8,13 +8,14 @@ import com.clearfashion.sdk.widgets.model.Product
 import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 import com.clearfashion.sdk.widgets.type.ClearFashionWidgetType
 import com.clearfashion.sdk.widgets.ui.component.widget.generic.WidgetButton
+import com.clearfashion.sdk.widgets.ui.theme.Color
 import com.clearfashion.sdk.widgets.utility.getWidget
 import com.clearfashion.sdk.widgets.utility.setLocale
 
 /**
  * Displays the Clear Fashion's AGEC widget.
  *
- * @param brandCode The code of your brand
+ * @param brandId The code of your brand
  * @param productIdentifier The identifier of the product.
  *  This can be either the product reference or its key.
  * @param lang The language of the widget. This parameter defaults to french.
@@ -23,9 +24,9 @@ import com.clearfashion.sdk.widgets.utility.setLocale
  */
 @Composable
 fun ClearFashionWidget(
-    brandCode: String,
+    brandId: String,
     productIdentifier: String,
-    lang: ClearFashionWidgetLanguage = ClearFashionWidgetLanguage.FRENCH,
+    lang: ClearFashionWidgetLanguage = ClearFashionWidgetLanguage.FR,
     type: ClearFashionWidgetType = ClearFashionWidgetType.AGEC
 ) {
     setLocale(lang)
@@ -36,9 +37,12 @@ fun ClearFashionWidget(
 
     // FIXME: Avoid second call
     fetchProductFromAPI(
-        brandCode,
+        brandId,
         productIdentifier,
-        onFailure = { setError(true)}
+        onFailure = {
+            setError(true)
+            setLoading(false)
+        }
     ) { product: Product ->
         run {
             setProduct(product)
@@ -51,7 +55,7 @@ fun ClearFashionWidget(
     if (loading) {
         Text("Loading...")
     } else if (error) {
-        Text(text = "Error")
+        Text("Error")
     } else {
         WidgetButton(
             product = product,
