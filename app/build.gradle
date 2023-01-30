@@ -60,5 +60,6 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
 
-    implementation project(':widgets')
+    implementation 'com.github.Clothparency:android-widgets:0.1'
+    //implementation project(':widgets')
 }

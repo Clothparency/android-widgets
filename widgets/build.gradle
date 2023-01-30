@@ -63,9 +63,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.clothparency'
+                groupId = 'com.github.Clothparency'
                 artifactId = 'clearfashion-widgets'
-                version = '1.0 '
+                version = '0.1.0'
             }
         }
     }

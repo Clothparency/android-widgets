@@ -10,6 +10,7 @@ internal fun fetchProductFromAPI(
     onFailure: (error: java.lang.Exception) -> Unit = {},
     onSuccess: (product: Product) -> Unit
 ) {
+    println("http://localhost:3000/api/partners/v1/brands/${brandCode}/products/${productID}")
     // FIXME: Set base API URL in configuration file
     fetchAndExecute(
         url = "http://localhost:3000/api/partners/v1/brands/${brandCode}/products/${productID}",
