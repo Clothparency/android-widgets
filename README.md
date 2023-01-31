@@ -144,7 +144,7 @@ ClearFashionWidget(
 
 ### Using Views
 
-In the activity in which you want to add the widget:
+If your application is view based , you can add the widget in the activity where you want it to be displayed:
 
 ```kotlin
 // ...
@@ -164,7 +164,7 @@ ClearFashionWidget(
 
 ### Using Fragments
 
-In the fragment XML file where you want to put the widget, add a compose view for the widget to live in:
+If your application is fragments based, in the fragment XML file where you want to put the widget, add a compose view for the widget to live in:
 
 ```xml
 <androidx.compose.ui.platform.ComposeView
