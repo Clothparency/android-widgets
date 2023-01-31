@@ -173,7 +173,7 @@ If your application is fragment based, in the fragment XML file where you want t
   android:layout_height="match_parent"/>
 ```
 
-And then in the onCreateView method, add the following:
+And then in the `onCreateView` method, add the following:
 
 ```kotlin
 // ...
