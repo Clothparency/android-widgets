@@ -3,30 +3,6 @@ package com.clearfashion.sdk.widgets.model
 import com.clearfashion.sdk.widgets.utility.Strings
 import java.util.Arrays
 
-internal data class ProductionStepOrigin(
-    val step: String,
-    val country_name: String
-) {
-    val country = country_name
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as ProductionStepOrigin
-
-        if (step != other.step) return false
-        if (country != other.country) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = step.hashCode()
-        result = 31 * result + country.hashCode()
-        return result
-    }
-}
-
 internal data class Product(
     val name: String,
     val brandName: String,
@@ -37,12 +13,13 @@ internal data class Product(
     val emittingMicroFiber: Boolean,
     val recycledPercentage: Int,
     val syntheticPercentage: Int,
-    val productionStepOrigins: Array<ProductionStepOrigin>, // Todo: change struct
+    val productionStepOrigins: Array<ProductionStepOrigin>,
     val dangerousSubstances: Array<String>,
     val concerningSubstances: Array<String>,
     val hasMaterialImpacts: Boolean,
-    val importedAt: String,
+    val importedAt: String
 ) {
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -85,6 +62,7 @@ internal data class Product(
         return result
     }
 }
+
 
 internal val EMPTY_PRODUCT = Product(
     name = Strings.Empty,

@@ -5,6 +5,25 @@
     <!-- General -->
     <string name="general_verified_by">Vérifié par</string>
 
+    <!-- General: Action -->
+    <string name="general_action_retry">
+        Réésayer
+    </string>
+
+    <!-- General: Error -->
+    <string name="general_error_general">
+        Une erreur s\'est produite. 😕
+    </string>
+    <string name="general_error_invalid_token">
+        Jeton d\'accès invalide
+    </string>
+    <string name="general_error_no_data">
+        Aucune donnée n\'a été trouvée
+    </string>
+    <string name="general_error_server_error">
+        Échec interne du serveur
+    </string>
+
     <!-- General: Footer -->
     <string name="general_footer_legals">
         Fiche produit relative aux qualités et caractéristiques environnementales : %s

@@ -5,6 +5,25 @@
     <!-- General -->
     <string name="general_verified_by">Verified by</string>
 
+    <!-- General: Action -->
+    <string name="general_action_retry">
+        Retry
+    </string>
+
+    <!-- General: Error -->
+    <string name="general_error_general">
+        Something went wrong. 😕
+    </string>
+    <string name="general_error_invalid_token">
+        Invalid authentication token
+    </string>
+    <string name="general_error_no_data">
+        No data has been found
+    </string>
+    <string name="general_error_server_error">
+        Internal Server Error
+    </string>
+
     <!-- General: Footer -->
     <string name="general_footer_legals">
         Product sheet on environmental qualities and characteristics: %s

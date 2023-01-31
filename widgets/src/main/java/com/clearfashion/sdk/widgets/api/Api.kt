@@ -1,61 +1,70 @@
 package com.clearfashion.sdk.widgets.api
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
-import com.clearfashion.sdk.widgets.model.Product
+import android.content.Context
+import com.clearfashion.sdk.widgets.utility.getConfigurationProperty
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import okhttp3.*
 import okio.IOException
+import java.lang.reflect.Type
+import mu.KotlinLogging
 
-// FIXME: use generics
-internal class EntityData(var id: String, var type: String, var attributes: Product)
+private val LOGGER = KotlinLogging.logger {}
 
-internal class Entity(var data: EntityData)
+internal data class EntityData<T>(var attributes: T)
 
-@Composable
-internal fun fetchAndExecute(
-    url: String,
-    onSuccess: (product: Product) -> Unit,
-    onFailure: (error: java.lang.Exception) -> Unit = {}
+internal data class APIEntity<T>(var data: EntityData<T>)
+
+internal fun <T>fetchAndExecute(
+    relativeUrl: String,
+    entityClass: Class<T>,
+    coroutineScope: CoroutineScope,
+    context: Context,
+    onSuccess: (entity: T) -> Unit,
+    onFailure: (error: APIError) -> Unit = {}
 ) {
-    // FIXME: Configure a logger
-    println("Attempting to fetch JSON")
+    LOGGER.info("Attempting to fetch JSON")
 
-    val request = Request.Builder().url(url).build()
-
+    val baseAPIUrl = getConfigurationProperty(context, "BASE_API_URL")
+    val request = Request.Builder().url("${baseAPIUrl}${relativeUrl}").build()
     val client = OkHttpClient()
-    val coroutineScope = rememberCoroutineScope()
 
     client.newCall(request).enqueue(object: Callback {
         override fun onResponse(call: Call, response: Response) {
-            val body = response.body?.string()
             try {
-                val gson = GsonBuilder().create()
-                val entity = gson.fromJson<Entity>(body, Entity::class.java)
+                if (!response.isSuccessful) throw APIError(response.code)
 
-                coroutineScope.launch {
-                    // FIXME: remove me when second API call will be avoided
-                    println("onSuccess")
-                    onSuccess(entity.data.attributes)
+                try {
+                    val body = response.body?.string()
+                    val gson = GsonBuilder().create()
+                    val apiEntityType: Type = TypeToken.getParameterized(
+                        APIEntity::class.java,
+                        entityClass
+                    ).type
+                    val entity: APIEntity<T> = gson.fromJson(body, apiEntityType)
+                    coroutineScope.launch {
+                        onSuccess(entity.data.attributes)
+                    }
+                } catch (e: java.lang.Exception) {
+                    throw APIError(-1, e)
                 }
-            } catch (e: java.lang.Exception) {
-                // FIXME: Configure a logger
-                println("Failed to parse response")
+
+            } catch (e: APIError) {
+                LOGGER.error("Failed to parse response")
                 e.printStackTrace()
                 coroutineScope.launch {
                     onFailure(e)
                 }
             }
-
         }
 
         override fun onFailure(call: Call, e: IOException) {
-            // FIXME: Configure a logger
-            println("Failed to execute request")
+            LOGGER.error("Failed to execute request")
             e.printStackTrace()
             coroutineScope.launch {
-                onFailure(e)
+                onFailure(APIError(-1, e))
             }
         }
     })

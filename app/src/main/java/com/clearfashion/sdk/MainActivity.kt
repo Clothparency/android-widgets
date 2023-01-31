@@ -36,8 +36,8 @@ class MainActivity: ComponentActivity() {
                             - 141284899A08 (production countries only)
                     */
                     ClearFashionWidget(
-                        brandId = "pimkie",
-                        productIdentifier = "141605696A06",
+                        brandId = "cyrillus",
+                        productIdentifier = "4-70101-0251",
                         lang = ClearFashionWidgetLanguage.FR
                     )
 
