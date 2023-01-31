@@ -106,7 +106,7 @@ Clear Fashion native android SDK for the widgets
 
 This package exposes a composable function: `ClearFashionWidget`
 
-If your application uses Jetpack compose, you can simply add it inside any composable scopes as so:
+If your application uses (Jetpack Compose)[https://developer.android.com/jetpack/compose], you can simply add it inside any composable scopes as so:
 
 ```kotlin
 // ...
@@ -168,4 +168,4 @@ binding.composeView.apply {
 }
 ```
 
-For more information on how to integrate a composable function in your code, please read: https://developer.android.com/jetpack/compose/interop/interop-apis
+For more informations on how to integrate a composable function in your code, please read: https://developer.android.com/jetpack/compose/interop/interop-apis
