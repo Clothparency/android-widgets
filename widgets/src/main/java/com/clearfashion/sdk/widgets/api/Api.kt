@@ -52,8 +52,7 @@ internal fun <T>fetchAndExecute(
                 }
 
             } catch (e: APIError) {
-                LOGGER.error("Failed to parse response")
-                e.printStackTrace()
+                LOGGER.error(e) { "Failed to parse response" }
                 coroutineScope.launch {
                     onFailure(e)
                 }
@@ -61,7 +60,7 @@ internal fun <T>fetchAndExecute(
         }
 
         override fun onFailure(call: Call, e: IOException) {
-            LOGGER.error("Failed to execute request")
+            LOGGER.error(e) { "Failed to execute request" }
             e.printStackTrace()
             coroutineScope.launch {
                 onFailure(APIError(-1, e))
