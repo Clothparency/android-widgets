@@ -29,7 +29,7 @@ https://github.com/Clothparency/android-widgets/releases/latest
 
   **Step 1.** Add the JitPack repository to your build file
 
-  Add it in your root build.gradle at the end of repositories:
+  Add it in your root `build.gradle` at the end of repositories:
 
   ```groovy
   allprojects {
@@ -85,7 +85,7 @@ https://github.com/Clothparency/android-widgets/releases/latest
   
   **Step 1.** Add the JitPack repository to your build file
 
-  Add it in your build.sbt at the end of resolvers:
+  Add it in your `build.sbt` at the end of resolvers:
 
   ```
   resolvers += "jitpack" at "https://jitpack.io"
@@ -106,7 +106,7 @@ https://github.com/Clothparency/android-widgets/releases/latest
   
   **Step 1.** Add the JitPack repository to your build file
   
-  Add it in your project.clj at the end of repositories:
+  Add it in your `project.clj` at the end of repositories:
   
   ```
   :repositories [["jitpack" "https://jitpack.io"]]
