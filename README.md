@@ -1,5 +1,16 @@
-# android-widgets
-Clear Fashion native android SDK for the widgets
+<br />
+<p align="center">
+  <img 
+      style="margin: auto; width: 5%;"
+      src="https://user-images.githubusercontent.com/2159699/215896047-e6eb3ca0-b2d1-40b3-8034-c26913033008.svg" 
+      alt="Logo Clear Fashion">
+  </img>
+</p>
+<br />
+
+# Clear Fashion widgets for Android
+
+Display your Clear Fashion widgets on your native android app.
 
 Check the latest release here:
 
@@ -179,3 +190,15 @@ ClearFashionWidget(
 ```
 
 For more informations on how to integrate a composable function in your code, please read: https://developer.android.com/jetpack/compose/interop/interop-apis
+
+
+
+<br />
+<br />
+<p align="center">
+  <img 
+      style="margin: auto; width: 20%;"
+      src="https://user-images.githubusercontent.com/2159699/215894277-8251062e-b339-4bf6-a958-42e792059ba3.svg" 
+      alt="Logo Clear Fashion">
+  </img>
+</p>
