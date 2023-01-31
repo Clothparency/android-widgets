@@ -145,7 +145,7 @@ In the fragment XML file where you want to put the widget, add a compose view fo
 
 ```xml
 <androidx.compose.ui.platform.ComposeView
-        android:id="@+id/compose_view"
+        android:id="@+id/cf_widget_compose_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 ```
@@ -153,7 +153,7 @@ In the fragment XML file where you want to put the widget, add a compose view fo
 And then in the onCreateView method, add the following:
 
 ```kotlin
-binding.composeView.apply {
+binding.cfWidgetComposeView.apply {
 
   // Dispose of the Composition when the view's LifecycleOwner is destroyed
   setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
