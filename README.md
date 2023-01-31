@@ -1,6 +1,10 @@
 # android-widgets
 Clear Fashion native android SDK for the widgets
 
+Check the latest release here:
+
+https://github.com/Clothparency/android-widgets/releases/latest
+
 ## Installation
 
 <details>
@@ -27,7 +31,7 @@ Clear Fashion native android SDK for the widgets
 
   ```groovy
   dependencies {
-    implementation 'com.github.Clothparency:android-widgets:0.2.3'
+    implementation 'com.github.Clothparency:android-widgets:0.2.4'
   }
   ```
 </details>
@@ -55,7 +59,7 @@ Clear Fashion native android SDK for the widgets
   <dependency>
      <groupId>com.github.Clothparency</groupId>
      <artifactId>android-widgets</artifactId>
-     <version>0.2.3</version>
+     <version>0.2.4</version>
   </dependency>
   ```
 </details>
@@ -77,7 +81,7 @@ Clear Fashion native android SDK for the widgets
   **Step 2.** Add the dependency
   
   ```
-  libraryDependencies += "com.github.Clothparency" % "android-widgets" % "0.2.3"	
+  libraryDependencies += "com.github.Clothparency" % "android-widgets" % "0.2.4"	
   ```
 </details>
 <details>
@@ -98,7 +102,7 @@ Clear Fashion native android SDK for the widgets
   **Step 2.** Add the dependency
   
   ```
-  :dependencies [[com.github.Clothparency/android-widgets "0.2.3"]]	
+  :dependencies [[com.github.Clothparency/android-widgets "0.2.4"]]	
   ```
 </details>
 
@@ -108,21 +112,21 @@ This package exposes a composable function: `ClearFashionWidget`
 
 If your application uses [Jetpack Compose](https://developer.android.com/jetpack/compose) you can simply add it inside any composable scopes as so:
 
+
+
 ```kotlin
 // ...
 
 import com.clearfashion.sdk.widgets.ClearFashionWidget
 import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 
-// ... some code
+// ...
 
 ClearFashionWidget(
   brandId = "The id of your brand as given by Clear Fashion",
   productIdentifier = "The identifier of your product as given by Clear Fashion",
   lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
 )
-
-// ... some code
 ```
 
 ### Using Views
@@ -130,13 +134,19 @@ ClearFashionWidget(
 In the activity in which you want to add the widget:
 
 ```kotlin
-setContent { // In here, we can call composables!
-  ClearFashionWidget(
-    brandId = "The id of your brand as given by Clear Fashion",
-    productIdentifier = "The identifier of your product as given by Clear Fashion",
-    lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
-  )
-}
+// ...
+
+import com.clearfashion.sdk.widgets.ClearFashionWidget
+import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
+
+// ...
+
+ClearFashionWidget(
+  activity = this,
+  brandId = "The id of your brand as given by Clear Fashion",
+  productIdentifier = "The identifier of your product as given by Clear Fashion",
+  lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
+)
 ```
 
 ### Using Fragments
@@ -153,19 +163,19 @@ In the fragment XML file where you want to put the widget, add a compose view fo
 And then in the onCreateView method, add the following:
 
 ```kotlin
-binding.cfWidgetComposeView.apply {
+// ...
 
-  // Dispose of the Composition when the view's LifecycleOwner is destroyed
-  setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+import com.clearfashion.sdk.widgets.ClearFashionWidget
+import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 
-  setContent() {
-    ClearFashionWidget(
-      brandId = "The id of your brand as given by Clear Fashion",
-      productIdentifier = "The identifier of your product as given by Clear Fashion",
-      lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
-    )
-  }
-}
+// ...
+
+ClearFashionWidget(
+  composeView = binding.cfWidgetComposeView,
+  brandId = "The id of your brand as given by Clear Fashion",
+  productIdentifier = "The identifier of your product as given by Clear Fashion",
+  lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
+)
 ```
 
 For more informations on how to integrate a composable function in your code, please read: https://developer.android.com/jetpack/compose/interop/interop-apis
