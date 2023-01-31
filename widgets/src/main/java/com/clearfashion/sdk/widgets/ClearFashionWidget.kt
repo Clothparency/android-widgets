@@ -1,7 +1,5 @@
 package com.clearfashion.sdk.widgets
 
-import android.content.Context
-import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import com.clearfashion.sdk.widgets.api.APIError
 import com.clearfashion.sdk.widgets.api.fetchProductFromAPI
@@ -12,7 +10,6 @@ import com.clearfashion.sdk.widgets.type.ClearFashionWidgetType
 import com.clearfashion.sdk.widgets.ui.component.Loadable
 import com.clearfashion.sdk.widgets.ui.component.LoadableState
 import com.clearfashion.sdk.widgets.ui.component.widget.generic.WidgetButton
-import com.clearfashion.sdk.widgets.ui.theme.Color
 import com.clearfashion.sdk.widgets.utility.Strings
 import com.clearfashion.sdk.widgets.utility.getContext
 import com.clearfashion.sdk.widgets.utility.getWidget
@@ -35,46 +32,47 @@ fun ClearFashionWidget(
     lang: ClearFashionWidgetLanguage = ClearFashionWidgetLanguage.FR,
     type: ClearFashionWidgetType = ClearFashionWidgetType.AGEC
 ) {
-    setLocale(lang)
+        setLocale(lang)
 
-    val coroutineScope = rememberCoroutineScope()
-    val context = getContext()
+        val coroutineScope = rememberCoroutineScope()
+        val context = getContext()
 
-    var (errorMessage, setErrorMessage) = remember { mutableStateOf(Strings.Empty) }
-    var (state, setState) = remember { mutableStateOf(LoadableState.Loading) }
-    var (product, setProduct) = remember { mutableStateOf(EMPTY_PRODUCT) }
+        var (errorMessage, setErrorMessage) = remember { mutableStateOf(Strings.Empty) }
+        var (state, setState) = remember { mutableStateOf(LoadableState.Loading) }
+        var (product, setProduct) = remember { mutableStateOf(EMPTY_PRODUCT) }
 
-    val apiCall = {
-        run {
-            fetchProductFromAPI(
-                brandId,
-                productIdentifier,
-                coroutineScope,
-                context,
-                onFailure = { e: APIError ->
-                    run {
-                        setState(LoadableState.Error)
-                        setErrorMessage(context.resources.getString(e.errorMessageResourceID))
+        val apiCall = {
+            run {
+                fetchProductFromAPI(
+                    brandId,
+                    productIdentifier,
+                    coroutineScope,
+                    context,
+                    onFailure = { e: APIError ->
+                        run {
+                            setState(LoadableState.Error)
+                            setErrorMessage(context.resources.getString(e.errorMessageResourceID))
+                        }
                     }
-                }
-            ) { product: Product ->
-                run {
-                    setProduct(product)
-                    setState(LoadableState.Loaded)
+                ) { product: Product ->
+                    run {
+                        setProduct(product)
+                        setState(LoadableState.Loaded)
+                    }
                 }
             }
         }
-    }
 
-    val widget = getWidget(type, product)
+        val widget = getWidget(type, product)
 
-    Loadable(state, errorMessage, apiCall) {
-        WidgetButton(
-            product = product,
-            title = widget.title,
-            closedContent = widget.closedContent
-        ) {
-            widget.content()
+        Loadable(state, errorMessage, apiCall) {
+            WidgetButton(
+                product = product,
+                title = widget.title,
+                closedContent = widget.closedContent
+            ) {
+                widget.content()
+            }
         }
-    }
+
 }

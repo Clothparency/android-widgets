@@ -27,7 +27,7 @@ internal fun AgecWidgetProductionContries(product: Product) {
             if (step != ProductionStep.Unknown) {
                 WidgetProductionCountry(
                     step = ProductionStep.fromName(productionStepOrigin.step),
-                    country = productionStepOrigin.country_name
+                    country = productionStepOrigin.countryName
                 )
             }
         }

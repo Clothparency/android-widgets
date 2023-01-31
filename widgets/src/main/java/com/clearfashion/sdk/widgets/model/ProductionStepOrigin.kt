@@ -2,7 +2,7 @@ package com.clearfashion.sdk.widgets.model
 
 internal data class ProductionStepOrigin(
     val step: String,
-    val country_name: String
+    val countryName: String
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11,14 +11,14 @@ internal data class ProductionStepOrigin(
         other as ProductionStepOrigin
 
         if (step != other.step) return false
-        if (country_name != other.country_name) return false
+        if (countryName != other.countryName) return false
 
         return true
     }
 
     override fun hashCode(): Int {
         var result = step.hashCode()
-        result = 31 * result + country_name.hashCode()
+        result = 31 * result + countryName.hashCode()
         return result
     }
 }

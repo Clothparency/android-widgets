@@ -14,7 +14,7 @@ internal fun fetchProductFromAPI(
     onSuccess: (product: Product) -> Unit
 ) {
     fetchAndExecute(
-        relativeUrl = "partners/v1/brands/${brandCode}/products/${productID}",
+        relativeUrl = "brands/${brandCode}/agec/products/${productID}",
         entityClass = Product::class.java,
         coroutineScope = coroutineScope,
         context = context,
