@@ -8,7 +8,9 @@
 </p>
 <br />
 
-# Clear Fashion widgets for Android
+<h1 align="center">Clear Fashion widgets for Android</h1>
+
+<br />
 
 Display your Clear Fashion widgets on your native android app.
 
@@ -166,9 +168,9 @@ In the fragment XML file where you want to put the widget, add a compose view fo
 
 ```xml
 <androidx.compose.ui.platform.ComposeView
-        android:id="@+id/cf_widget_compose_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+  android:id="@+id/cf_widget_compose_view"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"/>
 ```
 
 And then in the onCreateView method, add the following:
@@ -181,12 +183,20 @@ import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 
 // ...
 
-ClearFashionWidget(
-  composeView = binding.cfWidgetComposeView,
-  brandId = "The id of your brand as given by Clear Fashion",
-  productIdentifier = "The identifier of your product as given by Clear Fashion",
-  lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
-)
+override fun onCreate(savedInstanceState: Bundle?) {
+
+  // ...
+
+  ClearFashionWidget(
+    composeView = binding.cfWidgetComposeView,
+    brandId = "The id of your brand as given by Clear Fashion",
+    productIdentifier = "The identifier of your product as given by Clear Fashion",
+    lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
+  )
+
+  // ...
+
+}
 ```
 
 For more informations on how to integrate a composable function in your code, please read: https://developer.android.com/jetpack/compose/interop/interop-apis
