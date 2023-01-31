@@ -25,7 +25,7 @@ internal fun <T>fetchAndExecute(
     onSuccess: (entity: T) -> Unit,
     onFailure: (error: APIError) -> Unit = {}
 ) {
-    LOGGER.info("Attempting to fetch JSON")
+    LOGGER.info("Attempting to fetch data via API")
 
     val baseAPIUrl = getConfigurationProperty(context, "BASE_API_URL")
     val request = Request.Builder().url("${baseAPIUrl}${relativeUrl}").build()
@@ -44,6 +44,7 @@ internal fun <T>fetchAndExecute(
                         entityClass
                     ).type
                     val entity: APIEntity<T> = gson.fromJson(body, apiEntityType)
+                    LOGGER.info("Data fetched successfully")
                     coroutineScope.launch {
                         onSuccess(entity.data.attributes)
                     }
