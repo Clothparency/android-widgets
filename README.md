@@ -170,7 +170,7 @@ If your application is fragment based, in the fragment XML file where you want t
 <androidx.compose.ui.platform.ComposeView
   android:id="@+id/cf_widget_compose_view"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"/>
+  android:layout_height="wrap_content"/>
 ```
 
 And then in the `onCreateView` method, add the following:
