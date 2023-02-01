@@ -61,49 +61,48 @@ fun ClearFashionWidget(
     type: ClearFashionWidgetType = ClearFashionWidgetType.AGEC,
     modifier: Modifier = Modifier
 ) {
-        setLocale(lang)
+    setLocale(lang)
 
-        val coroutineScope = rememberCoroutineScope()
-        val context = getContext()
+    val coroutineScope = rememberCoroutineScope()
+    val context = getContext()
 
-        var (errorMessage, setErrorMessage) = remember { mutableStateOf(Strings.Empty) }
-        var (state, setState) = remember { mutableStateOf(LoadableState.Loading) }
-        var (product, setProduct) = remember { mutableStateOf(EMPTY_PRODUCT) }
+    var (errorMessage, setErrorMessage) = remember { mutableStateOf(Strings.Empty) }
+    var (state, setState) = remember { mutableStateOf(LoadableState.Loading) }
+    var (product, setProduct) = remember { mutableStateOf(EMPTY_PRODUCT) }
 
-        val apiCall = {
-            run {
-                fetchProductFromAPI(
-                    brandId,
-                    productIdentifier,
-                    coroutineScope,
-                    context,
-                    onFailure = { e: APIError ->
-                        run {
-                            setState(LoadableState.Error)
-                            setErrorMessage(context.resources.getString(e.errorMessageResourceID))
-                        }
-                    }
-                ) { product: Product ->
+    val apiCall = {
+        run {
+            fetchProductFromAPI(
+                brandId,
+                productIdentifier,
+                coroutineScope,
+                context,
+                onFailure = { e: APIError ->
                     run {
-                        setProduct(product)
-                        setState(LoadableState.Loaded)
+                        setState(LoadableState.Error)
+                        setErrorMessage(context.resources.getString(e.errorMessageResourceID))
                     }
+                }
+            ) { product: Product ->
+                run {
+                    setProduct(product)
+                    setState(LoadableState.Loaded)
                 }
             }
         }
+    }
 
-        val widget = getWidget(type, product)
+    val widget = getWidget(type, product)
 
-        Loadable(state, errorMessage, apiCall, modifier) {
-            WidgetButton(
-                product = product,
-                title = widget.title,
-                closedContent = widget.closedContent
-            ) {
-                widget.content()
-            }
+    Loadable(state, errorMessage, apiCall, modifier) {
+        WidgetButton(
+            product = product,
+            title = widget.title,
+            closedContent = widget.closedContent
+        ) {
+            widget.content()
         }
-
+    }
 }
 
 /**

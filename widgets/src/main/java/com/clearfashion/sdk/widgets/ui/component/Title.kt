@@ -7,11 +7,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.clearfashion.sdk.widgets.ui.theme.Color
+import com.clearfashion.sdk.widgets.ui.theme.DefaultFont
 
 @Composable
 internal fun Title(text : String, textAlign: TextAlign = TextAlign.Left, modifier: Modifier = Modifier) {
     Text(
         text = text,
+        fontFamily = DefaultFont,
         fontWeight = FontWeight.SemiBold,
         fontSize = 15.sp,
         color = Color.Grey600,

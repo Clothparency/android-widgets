@@ -50,3 +50,8 @@ internal fun getConfigurationProperties(context: Context): Properties {
 internal fun getConfigurationProperty(context: Context, key: String): String {
     return getConfigurationProperties(context).getProperty(key)
 }
+
+@Composable
+internal fun setFontFamily(fontResourceID: Int) {
+    getContext().theme.applyStyle(fontResourceID, true)
+}

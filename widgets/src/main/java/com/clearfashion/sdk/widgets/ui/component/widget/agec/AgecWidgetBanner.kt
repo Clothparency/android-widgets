@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.clearfashion.sdk.widgets.ui.theme.Color
 import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.model.Product
+import com.clearfashion.sdk.widgets.ui.theme.DefaultFont
 import com.clearfashion.sdk.widgets.utility.getResources
 
 @Composable
@@ -27,6 +28,7 @@ internal fun AgecWidgetBanner(product: Product) {
         Text(
             text = resources.getString(R.string.agec_banner, product.brandName),
             color = Color.Grey600,
+            fontFamily = DefaultFont,
             textAlign = TextAlign.Center
         )
     }

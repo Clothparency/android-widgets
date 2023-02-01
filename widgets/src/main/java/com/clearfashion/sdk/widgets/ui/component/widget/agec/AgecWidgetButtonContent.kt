@@ -16,6 +16,7 @@ import com.clearfashion.sdk.widgets.model.Product
 import com.clearfashion.sdk.widgets.ui.component.LogoColor
 import com.clearfashion.sdk.widgets.ui.component.LogoWithText
 import com.clearfashion.sdk.widgets.ui.component.Title
+import com.clearfashion.sdk.widgets.ui.theme.DefaultFont
 import com.clearfashion.sdk.widgets.utility.getResources
 import com.clearfashion.sdk.widgets.utility.hasImpact
 
@@ -36,7 +37,8 @@ internal fun AgecWidgetButtonContent(product: Product) {
                     color = Color.Grey300,
                     softWrap = true,
                     fontSize = 12.sp,
-                    fontWeight = FontWeight.Normal
+                    fontWeight = FontWeight.Normal,
+                    fontFamily = DefaultFont
                 )
                 Spacer(modifier = Modifier.size(6.dp))
                 LogoWithText(color = LogoColor.Grey)
