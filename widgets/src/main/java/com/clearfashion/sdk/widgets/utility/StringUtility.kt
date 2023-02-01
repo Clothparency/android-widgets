@@ -9,6 +9,6 @@ internal class Strings {
     }
 }
 
-fun joinWithComa(list: Array<String>): String {
-    return list.joinToString("${Strings.Coma}${Strings.Space}")
+fun joinWithComa(array: Array<String>): String {
+    return array.joinToString("${Strings.Coma}${Strings.Space}")
 }

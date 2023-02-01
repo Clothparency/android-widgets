@@ -50,7 +50,7 @@ import com.clearfashion.sdk.widgets.utility.setLocale
  * @param productIdentifier The identifier of the product.
  *  This can be either the product reference or its key.
  * @param lang The language of the widget. This parameter defaults to french.
- * @param type The type of the widget. This parameter defaults to AGEC which currently the only
+ * @param type The type of the widget. This parameter defaults to AGEC which currently is the only
  * type supported.
  */
 @Composable
@@ -156,7 +156,7 @@ fun ClearFashionWidget(
  * @param productIdentifier The identifier of the product.
  *  This can be either the product reference or its key.
  * @param lang The language of the widget. This parameter defaults to french.
- * @param type The type of the widget. This parameter defaults to AGEC which currently the only
+ * @param type The type of the widget. This parameter defaults to AGEC which currently is the only
  * type supported.
  */
 fun ClearFashionWidget(
@@ -208,7 +208,7 @@ fun ClearFashionWidget(
  * @param productIdentifier The identifier of the product.
  *  This can be either the product reference or its key.
  * @param lang The language of the widget. This parameter defaults to french.
- * @param type The type of the widget. This parameter defaults to AGEC which currently the only
+ * @param type The type of the widget. This parameter defaults to AGEC which currently is the only
  * type supported.
  */
 fun ClearFashionWidget(
