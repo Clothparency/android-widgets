@@ -17,21 +17,30 @@ internal class APIError : Exception {
     }
 
     companion object {
-        private fun extractMessage(code: Int): String {
+        internal const val INTERNAL_SERVER_ERROR_MESSAGE = "Internal Server Error"
+        internal const val DATA_NOT_FOUND_ERROR_MESSAGE = "Data not found"
+        internal const val UNAUTHORIZED_ERROR_MESSAGE = "Unauthorized"
+        internal const val GENERAL_ERROR_MESSAGE = "Something went wrong..."
+        internal val INTERNAL_SERVER_ERROR_RESOURCE_ID = R.string.general_error_server_error
+        internal val DATA_NOT_FOUND_ERROR_RESOURCE_ID = R.string.general_error_no_data
+        internal val UNAUTHORIZED_ERROR_RESOURCE_ID = R.string.general_error_invalid_token
+        internal val GENERAL_ERROR_RESOURCE_ID = R.string.general_error_general
+
+        internal fun extractMessage(code: Int): String {
             return when (code) {
-                500 -> "Internal Server Error"
-                404 -> "Data not found"
-                401 -> "Unauthorized"
-                else -> "Something went wrong..."
+                500 -> INTERNAL_SERVER_ERROR_MESSAGE
+                404 -> DATA_NOT_FOUND_ERROR_MESSAGE
+                401 -> UNAUTHORIZED_ERROR_MESSAGE
+                else -> GENERAL_ERROR_MESSAGE
             }
         }
 
-        private fun extractErrorMessageResourceID(code: Int): Int {
+        internal fun extractErrorMessageResourceID(code: Int): Int {
             return when (code) {
-                500 -> R.string.general_error_server_error
-                404 -> R.string.general_error_no_data
-                401 -> R.string.general_error_invalid_token
-                else -> R.string.general_error_general
+                500 -> INTERNAL_SERVER_ERROR_RESOURCE_ID
+                404 -> DATA_NOT_FOUND_ERROR_RESOURCE_ID
+                401 -> UNAUTHORIZED_ERROR_RESOURCE_ID
+                else -> GENERAL_ERROR_RESOURCE_ID
             }
         }
     }

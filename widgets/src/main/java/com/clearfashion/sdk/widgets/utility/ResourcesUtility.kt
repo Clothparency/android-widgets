@@ -10,12 +10,12 @@ import java.util.*
 
 @Composable
 internal fun getContext(): Context {
-    return LocalContext.current;
+    return LocalContext.current
 }
 
 @Composable
 internal fun getResources(): Resources {
-    return getContext().resources;
+    return getContext().resources
 }
 
 @Composable
@@ -25,7 +25,7 @@ internal fun setLocale(lang: ClearFashionWidgetLanguage) {
     configuration.setLocale(lang.locale)
     val displayMetrics = resources.displayMetrics
 
-    resources.updateConfiguration(configuration, displayMetrics);
+    resources.updateConfiguration(configuration, displayMetrics)
 }
 
 @Composable

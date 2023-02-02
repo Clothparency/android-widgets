@@ -28,15 +28,15 @@ internal fun getEnvironmentImpactTextResourceID(impact: EnvironmentImpact): Int 
 }
 
 internal fun hasDangerousSubstances(product: Product): Boolean {
-    return product.dangerousSubstances.isNotEmpty();
+    return product.dangerousSubstances.isNotEmpty()
 }
 
 internal fun hasConcerningSubstances(product: Product): Boolean {
-    return product.concerningSubstances.isNotEmpty();
+    return product.concerningSubstances.isNotEmpty()
 }
 
 internal fun hasRiskSubstances(product: Product): Boolean {
-    return hasDangerousSubstances(product) || hasConcerningSubstances(product);
+    return hasDangerousSubstances(product) || hasConcerningSubstances(product)
 }
 
 @Composable

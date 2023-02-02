@@ -20,7 +20,7 @@ class MainActivity: ComponentActivity() {
                 .fillMaxSize()
                 .background(Color(0xFFF5F5F5))
                 .padding(16.dp)) {
-                Column() {
+                Column {
                     Text(text = "This is some other content...")
                     Spacer(modifier = Modifier.size(16.dp))
                     Text(text = "And that too !")
@@ -37,7 +37,7 @@ class MainActivity: ComponentActivity() {
                     */
                     ClearFashionWidget(
                         brandId = "pimkie",
-                        productIdentifier = "280395902A09",
+                        productId = "280395902A09",
                         lang = ClearFashionWidgetLanguage.FR
                     )
 

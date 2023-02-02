@@ -19,7 +19,7 @@ internal fun WidgetEnvironmentImpact(
     title: String,
     description: String
 ) {
-    val resources = getResources();
+    val resources = getResources()
 
     WidgetSubSectionWithImage(resourceId = getEnvironmentImpactLogoResourceID(impact)) {
         SubTitle(resources.getString(getEnvironmentImpactTextResourceID(impact)))

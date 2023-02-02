@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import com.clearfashion.sdk.widgets.api.APIError
-import com.clearfashion.sdk.widgets.api.fetchProductFromAPI
+import com.clearfashion.sdk.widgets.api.Api
 import com.clearfashion.sdk.widgets.model.EMPTY_PRODUCT
 import com.clearfashion.sdk.widgets.model.Product
 import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
@@ -47,7 +47,7 @@ import com.clearfashion.sdk.widgets.utility.setLocale
  *
  *
  * @param brandId The code of your brand
- * @param productIdentifier The identifier of the product.
+ * @param productId The identifier of the product.
  *  This can be either the product reference or its key.
  * @param lang The language of the widget. This parameter defaults to french.
  * @param type The type of the widget. This parameter defaults to AGEC which currently is the only
@@ -56,45 +56,46 @@ import com.clearfashion.sdk.widgets.utility.setLocale
 @Composable
 fun ClearFashionWidget(
     brandId: String,
-    productIdentifier: String,
+    productId: String,
     lang: ClearFashionWidgetLanguage = ClearFashionWidgetLanguage.FR,
     type: ClearFashionWidgetType = ClearFashionWidgetType.AGEC,
     modifier: Modifier = Modifier
 ) {
     setLocale(lang)
 
-    val coroutineScope = rememberCoroutineScope()
-    val context = getContext()
-
+    // Jetpack Compose
     var (errorMessage, setErrorMessage) = remember { mutableStateOf(Strings.Empty) }
     var (state, setState) = remember { mutableStateOf(LoadableState.Loading) }
     var (product, setProduct) = remember { mutableStateOf(EMPTY_PRODUCT) }
+    val widget = getWidget(type, product)
+    val coroutineScope = rememberCoroutineScope()
+    val context = getContext()
 
-    val apiCall = {
-        run {
-            fetchProductFromAPI(
-                brandId,
-                productIdentifier,
-                coroutineScope,
-                context,
-                onFailure = { e: APIError ->
-                    run {
-                        setState(LoadableState.Error)
-                        setErrorMessage(context.resources.getString(e.errorMessageResourceID))
-                    }
-                }
-            ) { product: Product ->
+    // API
+    val api = Api(context)
+    val path = Api.PathBuilder()
+        .brand(brandId)
+        .agecProduct(productId)
+        .build()
+    val apiCallable = api
+        .withPath(path)
+        .withCoroutineScope(coroutineScope)
+        .buildCallable(
+            Product::class.java,
+            onFailure = { e: APIError ->
                 run {
-                    setProduct(product)
-                    setState(LoadableState.Loaded)
+                    setState(LoadableState.Error)
+                    setErrorMessage(context.resources.getString(e.errorMessageResourceID))
                 }
             }
+        ) { entity: Product ->
+            run {
+                setProduct(entity)
+                setState(LoadableState.Loaded)
+            }
         }
-    }
 
-    val widget = getWidget(type, product)
-
-    Loadable(state, errorMessage, apiCall, modifier) {
+    Loadable(state, errorMessage, apiCallable, modifier) {
         WidgetButton(
             product = product,
             title = widget.title,
@@ -152,7 +153,7 @@ fun ClearFashionWidget(
  *
  * @param composeView The compose view in which the widget will be displayed.
  * @param brandId The code of your brand.
- * @param productIdentifier The identifier of the product.
+ * @param productId The identifier of the product.
  *  This can be either the product reference or its key.
  * @param lang The language of the widget. This parameter defaults to french.
  * @param type The type of the widget. This parameter defaults to AGEC which currently is the only
@@ -161,7 +162,7 @@ fun ClearFashionWidget(
 fun ClearFashionWidget(
     composeView: ComposeView,
     brandId: String,
-    productIdentifier: String,
+    productId: String,
     lang: ClearFashionWidgetLanguage = ClearFashionWidgetLanguage.FR,
     type: ClearFashionWidgetType = ClearFashionWidgetType.AGEC,
 ) {
@@ -169,8 +170,8 @@ fun ClearFashionWidget(
         // Dispose of the Composition when the view's LifecycleOwner is destroyed
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
 
-        setContent() {
-            ClearFashionWidget(brandId, productIdentifier, lang, type)
+        setContent {
+            ClearFashionWidget(brandId, productId, lang, type)
         }
     }
 }
@@ -204,7 +205,7 @@ fun ClearFashionWidget(
  *
  * @param activity The activity in which you want to display the widget.
  * @param brandId The code of your brand.
- * @param productIdentifier The identifier of the product.
+ * @param productId The identifier of the product.
  *  This can be either the product reference or its key.
  * @param lang The language of the widget. This parameter defaults to french.
  * @param type The type of the widget. This parameter defaults to AGEC which currently is the only
@@ -213,11 +214,11 @@ fun ClearFashionWidget(
 fun ClearFashionWidget(
     activity: ComponentActivity,
     brandId: String,
-    productIdentifier: String,
+    productId: String,
     lang: ClearFashionWidgetLanguage = ClearFashionWidgetLanguage.FR,
     type: ClearFashionWidgetType = ClearFashionWidgetType.AGEC
 ) {
     activity.setContent {
-        ClearFashionWidget(brandId, productIdentifier, lang, type)
+        ClearFashionWidget(brandId, productId, lang, type)
     }
 }

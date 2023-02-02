@@ -6,6 +6,7 @@ internal class Strings {
         const val Coma = ","
         const val Space = " "
         const val NewLine = "\n"
+        const val ForwardSlash = "/"
     }
 }
 

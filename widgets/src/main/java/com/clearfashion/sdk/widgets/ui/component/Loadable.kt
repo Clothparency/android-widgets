@@ -15,7 +15,7 @@ enum class LoadableState {
 fun Loadable(
     state: LoadableState,
     errorMessage: String,
-    apiCall: () -> Unit,
+    apiCallable: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
@@ -23,9 +23,9 @@ fun Loadable(
         when (state) {
             LoadableState.Loading -> {
                 Spacer(modifier = Modifier.size(75.dp))
-                apiCall()
+                apiCallable()
             }
-            LoadableState.Error -> Error(errorMessage = errorMessage, onRetry = apiCall)
+            LoadableState.Error -> Error(errorMessage = errorMessage, onRetry = apiCallable)
             LoadableState.Loaded -> content()
         }
     }

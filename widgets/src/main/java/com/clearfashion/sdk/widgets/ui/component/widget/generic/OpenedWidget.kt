@@ -22,13 +22,13 @@ internal fun OpenedWidget(
     content: @Composable () -> Unit
 ) {
     val scrollState = rememberScrollState()
-    Popup() {
+    Popup {
         Box(
             modifier = modifier
                 .fillMaxSize()
                 .background(Color.White)
         ) {
-            Column() {
+            Column {
                 OpenedWidgetHeader(title, onClose)
                 Column(
                     modifier = Modifier

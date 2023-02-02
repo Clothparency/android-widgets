@@ -12,7 +12,7 @@ import com.clearfashion.sdk.widgets.utility.*
 
 @Composable
 internal fun WidgetProductionCountry(step: ProductionStep, country: String, modifier: Modifier = Modifier) {
-    val resources = getResources();
+    val resources = getResources()
 
     WidgetSubSectionWithImage(
         resourceId = getProductionStepLogoResourceID(step),

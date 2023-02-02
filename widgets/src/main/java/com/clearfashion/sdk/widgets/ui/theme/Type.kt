@@ -12,4 +12,4 @@ private val InterFont = FontFamily(
     Font(R.font.inter_bold, FontWeight.Bold)
 )
 
-val DefaultFont = InterFont
+internal val DefaultFont = InterFont

@@ -32,7 +32,7 @@ internal fun WidgetSubSectionWithImage(
                 )
             }
             Spacer(modifier = Modifier.size(16.dp))
-            Column() {
+            Column {
                 content()
             }
         }

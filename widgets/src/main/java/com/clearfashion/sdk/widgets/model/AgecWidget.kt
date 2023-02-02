@@ -8,7 +8,7 @@ import com.clearfashion.sdk.widgets.ui.component.widget.agec.AgecWidgetTitle
 import com.clearfashion.sdk.widgets.utility.hasImpact
 
 internal class AgecWidget: Widget {
-    val _product: Product;
+    val _product: Product
 
     constructor(product: Product) {
         _product = product
