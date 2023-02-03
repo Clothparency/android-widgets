@@ -1,10 +1,7 @@
 package com.clearfashion.sdk.widgets.utility
 
 import com.clearfashion.sdk.widgets.R
-import com.clearfashion.sdk.widgets.model.AgecWidget
-import com.clearfashion.sdk.widgets.model.EMPTY_PRODUCT
 import com.clearfashion.sdk.widgets.model.ProductionStep
-import com.clearfashion.sdk.widgets.type.ClearFashionWidgetType
 import org.junit.Test
 
 import org.junit.Assert.*

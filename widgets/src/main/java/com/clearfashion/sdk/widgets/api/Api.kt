@@ -1,6 +1,7 @@
 package com.clearfashion.sdk.widgets.api
 
 import android.content.Context
+import androidx.compose.ui.text.intl.Locale
 import com.clearfashion.sdk.widgets.utility.Strings
 import com.clearfashion.sdk.widgets.utility.getConfigurationProperty
 import com.google.gson.GsonBuilder
@@ -27,27 +28,25 @@ internal class Api {
     private val context: Context
     private val client: OkHttpClient
     private val baseAPIUrl: URL
-    private val requestBuilder: Request.Builder
+    private val requestBuilder: Request.Builder = Request.Builder()
     private var path: String = Strings.Empty
     private var coroutineScope: CoroutineScope? = null
+    private var locale : String? = null
 
-    constructor(context: Context) {
+    internal constructor(context: Context) {
         this.context = context
         this.client = OkHttpClient()
         this.baseAPIUrl = URL(getConfigurationProperty(context, BASE_API_CONFIG_KEY))
-        this.requestBuilder = Request.Builder()
     }
 
-    constructor(
+    internal constructor(
         context: Context,
         client: OkHttpClient,
-        baseAPIUrl: URL,
-        requestBuilder: Request.Builder
+        baseAPIUrl: URL
     ) {
         this.context = context
         this.client = client
         this.baseAPIUrl = baseAPIUrl
-        this.requestBuilder = requestBuilder
     }
 
     internal fun withPath(path: String): Api {
@@ -55,12 +54,46 @@ internal class Api {
         return this
     }
 
-    internal fun withCoroutineScope(coroutineScope: CoroutineScope): Api {
+    internal fun withCoroutineScope(coroutineScope: CoroutineScope?): Api {
         this.coroutineScope = coroutineScope
         return this
     }
 
-    private fun <T> onRequestSuccessful(
+    internal fun withLocale(locale: String): Api {
+        this.locale = locale
+        return this
+    }
+
+    internal fun <T> onResponse(
+        response: Response,
+        entityClass: Class<T>,
+        onFailure: (e: APIError) -> Unit,
+        onSuccess: (entity: T) -> Unit
+    ) {
+        try {
+            if (!response.isSuccessful) throw APIError(response.code)
+
+            onRequestSuccessful(response, entityClass, onSuccess)
+        } catch (e: APIError) {
+            onRequestFailure(e, "Failed to parse response", onFailure)
+        } finally {
+            response.close()
+        }
+    }
+
+    internal fun <T> launchWithCoroutineScope(entity: T, onSuccess: (entity: T) -> Unit) {
+        if (coroutineScope == null) return
+
+        onSuccess(entity)
+    }
+
+    internal fun launchWithCoroutineScope(error: APIError, onFailure: (e: APIError) -> Unit) {
+        if (coroutineScope == null) return
+
+        onFailure(error)
+    }
+
+    internal fun <T> onRequestSuccessful(
         response: Response,
         entityClass: Class<T>,
         onSuccess: (entity: T) -> Unit
@@ -76,23 +109,21 @@ internal class Api {
 
             LOGGER.info("Data fetched successfully")
 
-            coroutineScope?.launch {
-                onSuccess(entity.data.attributes)
-            } ?: onSuccess(entity.data.attributes)
+            if (coroutineScope == null) onSuccess(entity.data.attributes)
+            else launchWithCoroutineScope(entity.data.attributes, onSuccess)
         } catch (e: java.lang.Exception) {
             throw APIError(-1, e)
         }
     }
 
-    private fun onRequestFailure(
+    internal fun onRequestFailure(
         error: APIError,
         message: String,
-        onFailure: (e: APIError) -> Unit,
+        onFailure: (e: APIError) -> Unit
     ) {
         LOGGER.error(error) { message }
-        coroutineScope?.launch {
-            onFailure(error)
-        } ?: onFailure(error)
+        if (coroutineScope == null) onFailure(error)
+        else launchWithCoroutineScope(error, onFailure)
     }
 
     internal fun <T> fetchAndExecute(
@@ -101,19 +132,13 @@ internal class Api {
         onSuccess: (entity: T) -> Unit
     ) {
         LOGGER.info("Attempting to fetch data via API")
-        val request = requestBuilder.url("${baseAPIUrl}${path}").build()
+        val urlBuilder = java.lang.StringBuilder("${baseAPIUrl}${path}")
+        if (locale != null) urlBuilder.append("?locale=$locale")
+        val request = requestBuilder.url(urlBuilder.toString()).build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
-                try {
-                    if (!response.isSuccessful) throw APIError(response.code)
-
-                    onRequestSuccessful(response, entityClass, onSuccess)
-                } catch (e: APIError) {
-                    onRequestFailure(e, "Failed to parse response", onFailure)
-                } finally {
-                    response.close()
-                }
+                onResponse(response, entityClass, onFailure, onSuccess)
             }
 
             override fun onFailure(call: Call, e: IOException) {
@@ -163,7 +188,7 @@ internal class Api {
         }
 
         fun build(): String {
-            if (brandID == null) throw Exception("Please set a brand id")
+            if (brandID == null) return Strings.Empty
             if (agecProductID == null) return createBrandPath()
 
             return "${createBrandPath()}${createAgecProductPath()}"

@@ -12,13 +12,16 @@ internal enum class LogoColor {
     Black, Grey
 }
 
-private val colorToLogo = mapOf<LogoColor, Int>(
+private val colorToLogo = mapOf(
     LogoColor.Grey to R.drawable.logo_with_text_grey,
     LogoColor.Black to R.drawable.logo_with_text_black,
 )
 
 @Composable
-internal fun LogoWithText(color: LogoColor = LogoColor.Black, modifier: Modifier = Modifier.height(12.dp)) {
+internal fun LogoWithText(
+    color: LogoColor = LogoColor.Black,
+    modifier: Modifier = Modifier.height(12.dp)
+) {
     Image(
         painter = painterResource(colorToLogo[color]!!),
         contentDescription = "Clear Fashion",

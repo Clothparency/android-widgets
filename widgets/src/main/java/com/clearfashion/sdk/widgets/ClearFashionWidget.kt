@@ -8,8 +8,8 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import com.clearfashion.sdk.widgets.api.APIError
 import com.clearfashion.sdk.widgets.api.Api
-import com.clearfashion.sdk.widgets.model.EMPTY_PRODUCT
 import com.clearfashion.sdk.widgets.model.Product
+import com.clearfashion.sdk.widgets.model.Product.Companion.EMPTY_PRODUCT
 import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 import com.clearfashion.sdk.widgets.type.ClearFashionWidgetType
 import com.clearfashion.sdk.widgets.ui.component.Loadable
@@ -79,6 +79,7 @@ fun ClearFashionWidget(
         .build()
     val apiCallable = api
         .withPath(path)
+        .withLocale(lang.apiName)
         .withCoroutineScope(coroutineScope)
         .buildCallable(
             Product::class.java,

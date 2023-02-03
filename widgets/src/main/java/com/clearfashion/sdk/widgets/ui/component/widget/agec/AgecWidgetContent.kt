@@ -7,6 +7,6 @@ import com.clearfashion.sdk.widgets.utility.hasImpact
 @Composable
 internal fun AgecWidgetContent(product: Product) {
     AgecWidgetBanner(product)
-    AgecWidgetProductionContries(product)
+    AgecWidgetProductionCountries(product)
     if (hasImpact(product)) AgecWidgetImpact(product)
 }

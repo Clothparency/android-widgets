@@ -8,16 +8,16 @@ import com.clearfashion.sdk.widgets.ui.component.widget.agec.AgecWidgetTitle
 import com.clearfashion.sdk.widgets.utility.hasImpact
 
 internal class AgecWidget: Widget {
-    val _product: Product
+    private val product: Product
 
     constructor(product: Product) {
-        _product = product
+        this.product = product
     }
 
     override val title: @Composable () -> Unit
-        get() = { AgecWidgetTitle(_product) }
+        get() = { AgecWidgetTitle(product) }
     override val closedContent: @Composable () -> Unit
-        get() = { AgecWidgetButtonContent(_product) }
+        get() = { AgecWidgetButtonContent(product) }
     override val content: @Composable () -> Unit
-        get() = { AgecWidgetContent(_product) }
+        get() = { AgecWidgetContent(product) }
 }

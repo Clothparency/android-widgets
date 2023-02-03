@@ -12,7 +12,7 @@ import com.clearfashion.sdk.widgets.utility.hasImpact
 
 
 @Composable
-internal fun AgecWidgetProductionContries(product: Product) {
+internal fun AgecWidgetProductionCountries(product: Product) {
     val resources = getResources()
 
     val title =

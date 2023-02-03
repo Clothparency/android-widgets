@@ -61,22 +61,23 @@ internal data class Product(
         result = 31 * result + importedAt.hashCode()
         return result
     }
+
+    companion object {
+        internal val EMPTY_PRODUCT = Product(
+            name = Strings.Empty,
+            brandName = Strings.Empty,
+            brandCode = Strings.Empty,
+            readableRecyclability = Strings.Empty,
+            shouldDisplayRecyclability = false,
+            productCategory = Strings.Empty,
+            emittingMicroFiber = false,
+            recycledPercentage = -1,
+            syntheticPercentage = -1,
+            productionStepOrigins = emptyArray(),
+            dangerousSubstances = emptyArray(),
+            concerningSubstances = emptyArray(),
+            hasMaterialImpacts = false,
+            importedAt = Strings.Empty,
+        )
+    }
 }
-
-
-internal val EMPTY_PRODUCT = Product(
-    name = Strings.Empty,
-    brandName = Strings.Empty,
-    brandCode = Strings.Empty,
-    readableRecyclability = Strings.Empty,
-    shouldDisplayRecyclability = false,
-    productCategory = Strings.Empty,
-    emittingMicroFiber = false,
-    recycledPercentage = -1,
-    syntheticPercentage = -1,
-    productionStepOrigins = emptyArray(),
-    dangerousSubstances = emptyArray(),
-    concerningSubstances = emptyArray(),
-    hasMaterialImpacts = false,
-    importedAt = Strings.Empty,
-)

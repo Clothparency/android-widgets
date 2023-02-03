@@ -44,5 +44,20 @@ internal class APIError : Exception {
             }
         }
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as APIError
+
+        if (errorMessageResourceID != other.errorMessageResourceID) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return errorMessageResourceID
+    }
 }
 

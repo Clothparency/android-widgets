@@ -38,7 +38,7 @@ class MainActivity: ComponentActivity() {
                     ClearFashionWidget(
                         brandId = "pimkie",
                         productId = "280395902A09",
-                        lang = ClearFashionWidgetLanguage.FR
+                        lang = ClearFashionWidgetLanguage.EN
                     )
 
                     Spacer(modifier = Modifier.size(16.dp))

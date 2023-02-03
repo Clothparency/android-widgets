@@ -2,7 +2,7 @@ package com.clearfashion.sdk.widgets.utility
 
 import com.clearfashion.sdk.widgets.R
 import com.clearfashion.sdk.widgets.model.*
-import com.clearfashion.sdk.widgets.type.ClearFashionWidgetType
+import com.clearfashion.sdk.widgets.model.Product.Companion.EMPTY_PRODUCT
 import org.junit.Test
 
 import org.junit.Assert.*
