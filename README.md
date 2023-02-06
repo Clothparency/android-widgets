@@ -137,7 +137,7 @@ import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 
 ClearFashionWidget(
   brandId = "The id of your brand as given by Clear Fashion",
-  productIdentifier = "The identifier of your product as given by Clear Fashion",
+  productId = "The identifier of your product as given by Clear Fashion",
   lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
 )
 ```
@@ -157,7 +157,7 @@ import com.clearfashion.sdk.widgets.type.ClearFashionWidgetLanguage
 ClearFashionWidget(
   activity = this,
   brandId = "The id of your brand as given by Clear Fashion",
-  productIdentifier = "The identifier of your product as given by Clear Fashion",
+  productId = "The identifier of your product as given by Clear Fashion",
   lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
 )
 ```
@@ -190,7 +190,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
   ClearFashionWidget(
     composeView = binding.cfWidgetComposeView,
     brandId = "The id of your brand as given by Clear Fashion",
-    productIdentifier = "The identifier of your product as given by Clear Fashion",
+    productId = "The identifier of your product as given by Clear Fashion",
     lang = ClearFashionWidgetLanguage.EN // The widget also supports `ClearFashionWidgetLanguage.FR` which is the default value
   )
 
