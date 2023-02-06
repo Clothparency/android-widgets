@@ -13,7 +13,6 @@ class AgecWidgetTitleTest {
     @get:Rule
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
-    g
     @Before
     fun setup() {
         composeTestRule.setContent {
