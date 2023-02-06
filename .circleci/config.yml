@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  android: "2.1.2"
+  android: circleci/android@2.1.2
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -28,7 +28,53 @@ jobs:
             path: ~/test-results
         - store_artifacts:
             path: ~/test-results/junit
+  android-test:
+    parameters:
+      system-image:
+        type: string
+        default: system-images;android-30;google_apis;x86
+    executor:
+      name: android/android-machine
+      resource-class: xlarge
+    steps:
+      - checkout
+      - android/start-emulator-and-run-tests:
+          test-command: ./gradlew connectedDebugAndroidTest
+          system-image: << parameters.system-image >>
 
 workflows:
   test-and-build:
-  # We'll get to this later
+    jobs:
+      - unit-test
+      - android-test: # Commits to any branch - skip matrix of devices
+          executor:
+            name: android/android-machine
+            tag: 2022.08.1
+            resource-class: xlarge
+          filters:
+            branches:
+              ignore: main
+      - android-test: # Commits to main branch only - run full matrix
+          matrix:
+            alias: android-test-all
+            parameters:
+              system-image:
+                - system-images;android-30;google_apis;x86
+                - system-images;android-29;google_apis;x86
+                - system-images;android-28;google_apis;x86
+                - system-images;android-27;google_apis;x86
+                - system-images;android-26;google_apis;x86
+                - system-images;android-25;google_apis;x86
+                - system-images;android-24;google_apis;x86
+                - system-images;android-23;google_apis;x86
+          name: android-test-<<matrix.system-image>>
+          filters:
+            branches:
+              only: main
+      - release-build:
+          requires:
+            - unit-test
+            - android-test-all
+          filters:
+            branches:
+              only: main # Commits to main branch
