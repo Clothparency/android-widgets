@@ -44,7 +44,7 @@ https://github.com/Clothparency/android-widgets/releases/latest
 
   ```groovy
   dependencies {
-    implementation 'com.github.Clothparency:android-widgets:0.2.4'
+    implementation 'com.github.Clothparency:android-widgets:1.0.0'
   }
   ```
 </details>
@@ -72,7 +72,7 @@ https://github.com/Clothparency/android-widgets/releases/latest
   <dependency>
      <groupId>com.github.Clothparency</groupId>
      <artifactId>android-widgets</artifactId>
-     <version>0.2.4</version>
+     <version>1.0.0</version>
   </dependency>
   ```
 </details>
@@ -94,7 +94,7 @@ https://github.com/Clothparency/android-widgets/releases/latest
   **Step 2.** Add the dependency
   
   ```
-  libraryDependencies += "com.github.Clothparency" % "android-widgets" % "0.2.4"	
+  libraryDependencies += "com.github.Clothparency" % "android-widgets" % "1.0.0"	
   ```
 </details>
 <details>
@@ -115,7 +115,7 @@ https://github.com/Clothparency/android-widgets/releases/latest
   **Step 2.** Add the dependency
   
   ```
-  :dependencies [[com.github.Clothparency/android-widgets "0.2.4"]]	
+  :dependencies [[com.github.Clothparency/android-widgets "1.0.0"]]	
   ```
 </details>
 
