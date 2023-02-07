@@ -18,6 +18,8 @@ Check the latest release here:
 
 https://github.com/Clothparency/android-widgets/releases/latest
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Clothparency/ios-widgets/main/LICENSE.md)
+
 ## Installation
 
 <details>
